@@ -96,7 +96,7 @@ body {
 }
 
 .about-image img {
-    padding-left: 20%;
+    padding-left: 10%;
     width: 100%;
     max-width: 350px; /* Adjust image size */
     border-radius: 10px; /* Optional styling */
