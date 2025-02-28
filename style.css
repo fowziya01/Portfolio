@@ -48,7 +48,7 @@ body {
 }
 
 .hamburger {
-    display: block;
+    display: none;
     font-size: 24px;
     background-color: #560c29;
     border: none;
