@@ -1,9 +1,12 @@
 /* General Styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: aliceblue;
 }
 
@@ -19,7 +22,6 @@ body {
     color: white;
     padding: 15px 20px;
     width: 100%;
-
 }
 
 .logo {
@@ -34,26 +36,28 @@ body {
 }
 
 .nav-links li a {
-    display: inline-block;
+    display: block;
     text-decoration: none;
     color: white;
-    width: 40%; /* Controls the width */
-    max-width: 1200px; /* Prevents it from stretching too much */
-    margin: auto; /* Centers the section */
-    padding: 50px 20px; /* Adds spacing */
+    padding: 10px 15px; /* Adds spacing */
     text-align: center; 
 }
 .nav-links li a:hover{
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 .hamburger {
     display: none;
     font-size: 24px;
-    background-color: #560c29;
+    background: #560c29;
     border: none;
     color: white;
     cursor: pointer;
+}
+.hamburger-container {
+    position: relative; /* Ensures proper alignment within navbar */
+    display: flex;
+    align-items: center;
 }
 
 /* Home Section */
@@ -62,9 +66,8 @@ body {
     padding: 50px;
     color: #560c29;
     font-size: 1.2rem; /* Adjust this value as needed */
-
-
 }
+
 .about h2{
     text-align: center;
     color: #560c29;
@@ -85,6 +88,9 @@ body {
 .home-image {
     width: 40%;
     border-radius: 50%;
+}
+.fadeIn {
+    animation: fadeInScale 1.5s ease-in-out forwards;
 }
 
 /* About Section */
@@ -194,14 +200,14 @@ h2{
 }
 
 .project-card img {
-    width: 75%;  /* Make the image take equal width */
+    width: 50%;  /* Make the image take equal width */
     object-fit: cover;
     border-radius: 8px;
     padding-right: 0; /* Remove unnecessary padding */
 }
 
 .project-details {
-    width: 35%; /* Make text section equal to image */
+    width: 50%; /* Make text section equal to image */
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -236,29 +242,42 @@ h2{
     font-size: 1rem;
     transition: 0.3s;
 }
-
-
-
 /* Contact Section */
 .contact {
     text-align: center;
     padding: 50px;
 }
-.contact p {
-    font-size: 1.4rem; /* Adjust as needed */
-    font-weight: bold; /* Optional: Makes text bold */
-    color: #333; /* Slightly darker color for better readability */
-    margin-bottom: 10px; /* Adds spacing between lines */
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   color:#560c29 #630f30;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
+.contact-icons a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-icons a:hover {
+    color: #007bff;
+}
+.contact-icons i {
+    font-size: 30px;
+    color: #333;
+}
 /* Footer */
 .footer {
     background-color:#630f30;
     color: white;
     text-align: center;
     padding: 15px;
-    position: relative; /* Change to fixed if you want it always at the bottom */
-    bottom: 0;
     width: 100%;
 }
 
@@ -280,10 +299,11 @@ h2{
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #333;
+        background-color: #630f30;
         width: 100%;
         text-align: center;
-        padding: 10px;
+        padding: 10px 0;
+        z-index: 1050;
     }
 
     .nav-links.show {
@@ -293,4 +313,58 @@ h2{
     .hamburger {
         display: block;
     }
+    /* About section */
+    .about-container {
+        grid-template-columns: 1fr; /* Switch to a single column */
+        text-align: center;
+    }
+
+    .about-image img {
+        margin: auto; /* Center the image */
+    }
+    /* Projects */
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-card {
+        width: 90%;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .skills-slider {
+        grid-template-columns: repeat(2, 1fr); /* 2 icons per row on mobile */
+        gap: 15px;
+    }
+    .skills-slider img {
+        width: 80px; /* Reduce image size */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .home-image {
+        width: 60%;
+    }
+    .project-card {
+        flex-direction: column; /* Stack image & text */
+        align-items: center;
+        text-align:center;
+    }
+    .project-card img{ 
+        width: 100%; /* Full width */
+        padding-right: 0;
+
+    }
+    .project-details {
+        width: 100%;
+ 
+    }
+
+}
+@media screen and (max-width: 400px) {
+    .skills-slider img {
+        width: 60px;
+        padding: 5px;
+    }
+}
+   
