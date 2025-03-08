@@ -175,6 +175,8 @@ h2{
 
 .projects-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
@@ -204,6 +206,12 @@ h2{
     object-fit: cover;
     border-radius: 8px;
     padding-right: 0; /* Remove unnecessary padding */
+}
+.project-card:nth-child(2) img { 
+    max-width: 400px; /* Increase size only for the second project */
+    height: 250px; /* Increase height */
+    object-fit: cover; /* Ensures the image covers the set dimensions */
+    margin-top:50px;
 }
 
 .project-details {
